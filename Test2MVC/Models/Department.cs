@@ -1,0 +1,21 @@
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Test2MVC.Models
+{
+    public class Department
+    {
+        
+        [Display(Name = "Department ID")]
+        public int DepartmentID { get; set; }
+
+        [Required]
+        [Column(TypeName = "varchar(150)")]
+        [Display(Name = "Department Name")]
+        public string? DepartmentName { get; set; }
+
+        [Column(TypeName = "varchar(5)")]
+        [Display(Name = "Department Abbreviation")]
+        public string? DepartmentAbbr { get; set; }
+    }
+}

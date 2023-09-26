@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Employee>
+
+ <h1>Employee Page</h1>
+
+ <a asp-action="Create" class="btn btn-primary">Create New Employee</a>
+
+ <table class="table">
+     <tr>
+         <th>@Html.DisplayNameFor(m => m.EmployeeNumber)</th>
+         <th>@Html.DisplayNameFor(m => m.EmployeeName)</th>
+         <th>@Html.DisplayNameFor(m => m.DOB)</th>
+         <th>@Html.DisplayNameFor(m => m.HiringDate)</th>
+         <th>@Html.DisplayNameFor(m => m.GrossSalary)</th>
+         <th>@Html.DisplayNameFor(m => m.NetSalary)</th>
+         <th>@Html.DisplayNameFor(m => m.DepartmentName)</th>
+         <th>Edit/Delet</th>
+     </tr>
+
+     @foreach (var emp in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(m => emp.EmployeeNumber)</td>
+            <td>@Html.DisplayFor(m => emp.EmployeeName)</td>
+            <td>@Html.DisplayFor(m => emp.DOB)</td>
+            <td>@Html.DisplayFor(m => emp.HiringDate)</td>
+            <td>@Html.DisplayFor(m => emp.GrossSalary)</td>
+            <td>@Html.DisplayFor(m => emp.NetSalary)</td>
+            <td>@Html.DisplayFor(m => emp.DepartmentName)</td>
+            <td>
+                @Html.ActionLink("Edit","Edit",new {id = emp.EmployeeID})
+                @Html.ActionLink("Delet","Delet",new {id = emp.EmployeeID}, new {onclick = "return confirm('Are you want to delet this employee?');"})
+            </td>
+        </tr>
+    }
+ </table>
